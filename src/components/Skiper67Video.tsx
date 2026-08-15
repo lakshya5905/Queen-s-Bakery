@@ -84,7 +84,7 @@ interface Skiper67Props {
 }
 
 export const Skiper67: React.FC<Skiper67Props> = ({
-  videoSrc = "/videos/cart-click.mp4",
+  videoSrc = "https://res.cloudinary.com/dpoymblzq/video/upload/v1786825239/create_a_seamless_cart_interaction_animation_1_-ezremove_faw0vu.mp4",
 }) => {
   const [showVideoPopOver, setShowVideoPopOver] = useState(false);
 

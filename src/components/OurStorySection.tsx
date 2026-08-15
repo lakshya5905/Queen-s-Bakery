@@ -22,10 +22,10 @@ const STORY_IMAGES: StoryImageItem[] = [
   {
     id: 1,
     title: "The Royal Seal",
-    url: "/images/queens-bakery-logo.png",
-    localSrc: "/images/queens-bakery-logo.png",
+    url: "https://images.rawpixel.com/image_social_landscape/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA5L3Jhd3BpeGVsb2ZmaWNlMTJfcGhvdG9fb2Zfc3VwZXJtYXJrZXRfbmF0dXJhbF9saWdodF9iYWtlcnlfcHJvZl82YWRhODY0NC02OTM1LTQyZWYtODZiOC01MTE0Mjc5ZTgzYWZfMS5qcGc.jpg",
+    localSrc: "https://images.rawpixel.com/image_social_landscape/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA5L3Jhd3BpeGVsb2ZmaWNlMTJfcGhvdG9fb2Zfc3VwZXJtYXJrZXRfbmF0dXJhbF9saWdodF9iYWtlcnlfcHJvZl82YWRhODY0NC02OTM1LTQyZWYtODZiOC01MTE0Mjc5ZTgzYWZfMS5qcGc.jpg",
     isLogo: true,
-    alt: "Queen's Bakery Royal Emblem",
+    alt: "Queen's Bakery heritage interior and freshly baked goods",
   },
   {
     id: 2,
@@ -144,62 +144,35 @@ const StoryStickyCard: React.FC<StickyCardProps> = ({ item, index, total }) => {
       }}
     >
       <div className="relative w-full h-full overflow-hidden flex items-center justify-center">
-        {item.isLogo ? (
-          <div className="relative w-full h-full flex flex-col items-center justify-center p-8 bg-gradient-to-b from-[#1C1A18] to-[#121110]">
-            <motion.img
-              src={imgSrc}
-              alt={item.alt}
-              referrerPolicy="no-referrer"
-              onError={() => {
-                if (item.localSrc && imgSrc !== item.localSrc) {
-                  setImgSrc(item.localSrc);
-                } else if (imgSrc !== item.url) {
-                  setImgSrc(item.url);
-                }
-              }}
-              style={{
-                rotate: negateFilter,
-              }}
-              className="max-h-56 max-w-56 w-auto h-auto object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] select-none"
-            />
-            <div className="absolute bottom-5 left-6 right-6 flex items-center justify-between text-xs text-[#D8D0C3]/60 border-t border-[#D8D0C3]/10 pt-3">
-              <span className="font-serif tracking-widest uppercase text-[11px] text-[#C5A880]">
-                House of Queen's Bakery
-              </span>
-              <span className="font-mono text-[10px]">01 / 07</span>
-            </div>
+        <div className="relative w-full h-full">
+          <motion.img
+            src={imgSrc}
+            alt={item.alt}
+            referrerPolicy="no-referrer"
+            onError={() => {
+              if (item.localSrc && imgSrc !== item.localSrc) {
+                setImgSrc(item.localSrc);
+              } else if (imgSrc !== item.url) {
+                setImgSrc(item.url);
+              }
+            }}
+            style={{
+              rotate: negateFilter,
+            }}
+            className="h-full w-full scale-105 object-cover object-center select-none"
+            loading="lazy"
+          />
+          {/* Subtle Gradient Overlay & Card Badge */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#171614]/70 via-transparent to-black/10 pointer-events-none" />
+          <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between text-xs text-[#F7F4EE] pointer-events-none">
+            <span className="font-serif font-medium text-sm tracking-wide drop-shadow-sm">
+              {item.isLogo ? "House of Queen's Bakery" : item.title}
+            </span>
+            <span className="font-mono text-[10px] opacity-75 bg-[#171614]/40 px-2 py-0.5 rounded-full backdrop-blur-xs border border-white/10">
+              0{index + 1} / 0{total}
+            </span>
           </div>
-        ) : (
-          <div className="relative w-full h-full">
-            <motion.img
-              src={imgSrc}
-              alt={item.alt}
-              referrerPolicy="no-referrer"
-              onError={() => {
-                if (item.localSrc && imgSrc !== item.localSrc) {
-                  setImgSrc(item.localSrc);
-                } else if (imgSrc !== item.url) {
-                  setImgSrc(item.url);
-                }
-              }}
-              style={{
-                rotate: negateFilter,
-              }}
-              className="h-full w-full scale-105 object-cover object-center select-none"
-              loading="lazy"
-            />
-            {/* Subtle Gradient Overlay & Card Badge */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#171614]/70 via-transparent to-black/10 pointer-events-none" />
-            <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between text-xs text-[#F7F4EE] pointer-events-none">
-              <span className="font-serif font-medium text-sm tracking-wide drop-shadow-sm">
-                {item.title}
-              </span>
-              <span className="font-mono text-[10px] opacity-75 bg-[#171614]/40 px-2 py-0.5 rounded-full backdrop-blur-xs border border-white/10">
-                0{index + 1} / 0{total}
-              </span>
-            </div>
-          </div>
-        )}
+        </div>
       </div>
     </motion.div>
   );

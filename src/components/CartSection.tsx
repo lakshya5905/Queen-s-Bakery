@@ -35,7 +35,7 @@ export const CartSection: React.FC = () => {
 
         {/* Skiper67 Video Preview & Modal Player */}
         <div className="w-full flex justify-center">
-          <Skiper67 videoSrc="/videos/cart-click.mp4" />
+          <Skiper67 videoSrc="https://res.cloudinary.com/dpoymblzq/video/upload/v1786825239/create_a_seamless_cart_interaction_animation_1_-ezremove_faw0vu.mp4" />
         </div>
       </div>
     </section>
