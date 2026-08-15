@@ -22,8 +22,8 @@ const STORY_IMAGES: StoryImageItem[] = [
   {
     id: 1,
     title: "The Royal Seal",
-    url: "https://drive.google.com/uc?export=download&id=1SB4eawoLPqD4sVaNRXdncMBGAmCEh1gt",
-    localSrc: "/assets/queens-bakery-logo.png",
+    url: "/images/queens-bakery-logo.png",
+    localSrc: "/images/queens-bakery-logo.png",
     isLogo: true,
     alt: "Queen's Bakery Royal Emblem",
   },
